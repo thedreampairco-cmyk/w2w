@@ -365,6 +365,10 @@ app.use((err, req, res, next) => {
 // ============================================================
 // START SERVER
 // ============================================================
+// Start the scheduler inside the same process
+const scheduler = require('./scheduler');
+scheduler.start();
+
 app.listen(PORT, () => {
     console.log(`[server] ✅ CineBot server running on port ${PORT}`);
     console.log(`[server] Webhook URL: http://localhost:${PORT}/webhook`);
